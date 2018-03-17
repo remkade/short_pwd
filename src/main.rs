@@ -15,9 +15,9 @@ fn main() {
 
 fn remove_home<'a>(home: &str, pwd: &'a str) -> Cow<'a, str>{
     if pwd.starts_with(home) {
-        Cow::Owned(pwd.replace(home, "~"))
+        pwd.replace(home, "~").into()
     } else {
-        Cow::Borrowed(pwd)
+        pwd.into()
     }
 }
 
